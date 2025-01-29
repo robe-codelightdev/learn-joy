@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Completado: {{ answerProgress }} / {{ questionsTotal }}</h2>
+
+  <div *ngIf="currentQuestion" class="question-card">
+    <app-number-squared [number]="currentQuestion.number1"></app-number-squared>
+    <span class="math-sign multiplication-sign">x</span>
+    <app-number-squared [number]="currentQuestion.number2"></app-number-squared>
+    <span class="math-sign">=</span>
+    <input
+      type="number"
+      [class.wrong-answer]="isAnswerWrong"
+      (keyup.enter)="checkAnswer()"
+      [(ngModel)]="userAnswer"
+    />
+  </div>
+
+  <button (click)="checkAnswer()">Comprobar</button>
+</div>

@@ -1,0 +1,11 @@
+span {
+  background: rgb(59 105 196 / 0.3);
+  border: 3px solid rgb(59 105 196 / 0.6);
+  border-radius: 20px;
+  color: rgb(59 105 196);
+  display: inline-block;
+  font-size: 6rem;
+  font-weight: bold;
+  line-height: 1;
+  padding: 15px 30px;
+}
