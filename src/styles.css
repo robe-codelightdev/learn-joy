@@ -2,4 +2,5 @@ html, body {
   color: rgb(55 55 60);
   font-family: 'Roboto', system-ui, sans-serif;
   font-size: 16px;
+  margin: 0;
 }

@@ -1,32 +1,6 @@
-.container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  height: 100vh;
-  justify-content: center;
-  overflow: auto;
-  width: 100vw;
-}
-
-.math-sign {
-  font-size: 5rem;
-  font-weight: bold;
-}
-
-.math-sign.multiplication-sign {
-  font-size: 3rem;
-}
-
-.question-card {
-  align-items: center;
-  display: flex;
-  gap: 15px;
-}
-
 button {
-  background: rgb(59 196 89 / 0.5);
-  border: 3px solid rgb(59 196 89 / 0.6);
+  background: rgb(59 196 89 / 0.7);
+  border: 3px solid rgb(59 196 89 / 0.9);
   border-radius: 13px;
   color: rgba(255 255 255);
   font-size: 1.4rem;
@@ -69,3 +43,62 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.container {
+  align-items: center;
+  background: rgb(159 221 239);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.math-bg {
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.math-sign {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.math-sign.multiplication-sign {
+  font-size: 3rem;
+}
+
+.question-card {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  position: relative;
+}
+
+.wrong-answer-message {
+  color: rgb(196 59 59 / 0.8);
+  font-weight: bold;
+  margin: 0;
+  position: absolute;
+  right: -160px;
+  text-shadow: rgb(196 59 59) 0 0 16px;
+  width: 140px;
+}
+
