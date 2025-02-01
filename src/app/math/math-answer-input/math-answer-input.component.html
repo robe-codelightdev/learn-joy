@@ -1,0 +1,12 @@
+<input
+  type="number"
+  (change)="onValueChange($event)"
+  [class.wrong-answer]="isAnswerWrong"
+  (keyup.enter)="enterKeyPressed.emit()"
+  [value]="value"
+/>
+<span
+  *ngIf="isAnswerWrong"
+  class="wrong-answer-message">
+  Vuelve a intentarlo
+</span>

@@ -3,45 +3,14 @@ button {
   border: 3px solid rgb(59 196 89 / 0.9);
   border-radius: 13px;
   color: rgba(255 255 255);
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: bold;
   padding: 8px 16px;
 }
 
 h2 {
+  font-size: 1.25rem;
   margin: 0;
-}
-
-input {
-  background: rgb(59 105 196 / 0.3);
-  border: 3px solid rgb(59 105 196 / 0.6);
-  border-radius: 20px;
-  color: rgb(59 105 196);
-  font-size: 6rem;
-  font-weight: bold;
-  height: 96px;
-  padding: 15px 30px;
-  width: 107px;
-}
-
-input:focus-visible {
-  outline: none;
-}
-
-input.wrong-answer {
-  background: rgb(196 59 59 / 0.3);
-  border: 3px solid rgb(196 59 59 / 0.6);
-  color: rgb(196 59 59 / 0.8);
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 .container {
@@ -77,28 +46,40 @@ input[type="number"] {
 }
 
 .math-sign {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .math-sign.multiplication-sign {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .question-card {
   align-items: center;
   display: flex;
-  gap: 15px;
+  gap: 8px;
   position: relative;
 }
 
-.wrong-answer-message {
-  color: rgb(196 59 59 / 0.8);
-  font-weight: bold;
-  margin: 0;
-  position: absolute;
-  right: -160px;
-  text-shadow: rgb(196 59 59) 0 0 16px;
-  width: 140px;
+@media (min-width: 768px) {
+  button {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .math-sign {
+    font-size: 5rem;
+  }
+
+  .math-sign.multiplication-sign {
+    font-size: 3rem;
+  }
+
+  .question-card {
+    gap: 15px;
+  }
 }
 
