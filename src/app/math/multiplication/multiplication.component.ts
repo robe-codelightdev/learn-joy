@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
-import {NumberPair} from "../shared/models/math.model";
+import {NgFor, NgIf} from "@angular/common";
+
+import {MathAnswerAttempt, MathQuestion} from "../shared/models/math.model";
 import {NumberSquaredComponent} from "../number-squared/number-squared.component";
 import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.component";
+import {MathService} from "../shared/services/math.service";
 
 @Component({
   selector: 'app-multiplication',
@@ -11,6 +13,7 @@ import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.c
   imports: [
     FormsModule,
     NgIf,
+    NgFor,
     NumberSquaredComponent,
     MathAnswerInputComponent,
   ],
@@ -18,60 +21,92 @@ import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.c
   styleUrl: './multiplication.component.css'
 })
 export class MultiplicationComponent {
-  public currentQuestion: NumberPair | null = null;
+  public currentAnswer: number | undefined = undefined;
+
+  public currentQuestion: MathQuestion | undefined = undefined;
+
   public isAnswerWrong = false;
-  public questionsTotal = 0;
-  public userAnswer: number | undefined = undefined;
 
-  private questionsOLD: NumberPair[] = this.generateQuestions();
+  public questionsNumber: number;
 
-  public constructor() {
-    this.questionsTotal = this.questionsOLD.length;
-    this.nextQuestion();
-  }
+  // store user attempts for each question
+  public userAttempts: Map<number, MathAnswerAttempt[]> = new Map();
 
-  public get answerProgress() {
-    return this.questionsTotal - this.questionsOLD.length - 1;
+  public userResults: Array<{operand1: number; operand2: number; attemptsNumber: number }> = [];
+
+  private questions: MathQuestion[];
+  private userAttemptNumber = 0;
+
+  public constructor(
+    private readonly mathService: MathService,
+  ) {
+    this.questions = this.mathService.generateMultiplicationQuiz();
+    this.questionsNumber = this.questions.length;
+    this.currentQuestion = this.questions.pop();
   }
 
   public checkAnswer() {
-    try {
-      if (this.currentQuestion) {
-        const correctAnswer = this.currentQuestion.number1 * this.currentQuestion.number2;
+    const userAttempt = this.createUserAttempt();
 
-        if (this.userAnswer === correctAnswer) {
-          this.isAnswerWrong = false;
-          this.userAnswer = undefined;
-          this.nextQuestion();
-        } else {
-          this.isAnswerWrong = true;
-        }
-      }
-    } catch (e) {
-      console.error('ERROR ', e)
+    if (userAttempt) {
+      this.addUserAttempt(userAttempt);
+      this.handleUserAttempt(userAttempt);
+    }
+  }
+
+  public restartQuiz(): void {
+    this.questions = this.mathService.generateMultiplicationQuiz();
+    this.questionsNumber = this.questions.length;
+    this.currentQuestion = this.questions.pop();
+    this.userAttempts = new Map();
+    this.userAttemptNumber = 0;
+    this.currentAnswer = undefined;
+    this.isAnswerWrong = false;
+    this.userResults = [];
+  }
+
+  private addUserAttempt(userAttempt: MathAnswerAttempt): void {
+    const currentQuestionId = this.currentQuestion?.id;
+
+    if (!currentQuestionId) {
+      return;
     }
 
-  }
-
-  private generateQuestions() {
-    const questions = [];
-    for (let i = 2; i <= 9; i++) {
-      for (let j = i; j <= 9; j++) {
-        questions.push({number1: i, number2: j});
-      }
+    if (this.userAttempts.has(currentQuestionId)) {
+      this.userAttempts.get(currentQuestionId)?.push(userAttempt);
+      return;
     }
-    return this.shuffleArray(questions);
+
+    this.userAttempts.set(currentQuestionId, [userAttempt]);
   }
 
-  private shuffleArray(array: any[]) {
-    return array.sort(() => Math.random() - 0.5);
+  private createUserAttempt(): MathAnswerAttempt | undefined {
+    if (!this.currentQuestion || !this.currentAnswer) {
+      return undefined;
+    }
+
+    return {
+      userAnswer: this.currentAnswer,
+      isCorrect: this.currentAnswer === this.currentQuestion.correctAnswer,
+      question: this.currentQuestion,
+      attemptNumber: this.userAttemptNumber + 1,
+    };
   }
 
-  private nextQuestion() {
-    if (this.questionsOLD.length > 0) {
-      this.currentQuestion = this.questionsOLD?.pop() ?? null;
+  private handleUserAttempt(userAttempt: MathAnswerAttempt): void {
+    if (userAttempt.isCorrect) {
+      this.userResults.push({
+        operand1: userAttempt.question.operand1,
+        operand2: userAttempt.question.operand2,
+        attemptsNumber: userAttempt.attemptNumber,
+      });
+      this.isAnswerWrong = false;
+      this.currentAnswer = undefined;
+      this.userAttemptNumber = 0;
+      this.currentQuestion = this.questions.length > 0 ? this.questions.pop() : undefined;
     } else {
-      this.currentQuestion = null;
+      this.userAttemptNumber++;
+      this.isAnswerWrong = true;
     }
   }
 }

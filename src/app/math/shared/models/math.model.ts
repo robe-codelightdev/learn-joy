@@ -5,11 +5,6 @@ export enum MathOperator {
   Division = '/'
 }
 
-export interface NumberPair {
-  number1: number;
-  number2: number;
-}
-
 export interface MathQuestion {
   id: number;
   correctAnswer: number;

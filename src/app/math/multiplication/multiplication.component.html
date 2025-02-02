@@ -1,21 +1,40 @@
 <div class="container">
   <div *ngIf="currentQuestion" class="content">
-    <h2>Completado: {{ answerProgress }} / {{ questionsTotal }}</h2>
+    <h2>Completado: {{ userResults.length }} / {{ questionsNumber }}</h2>
 
-    <div class="question-card">
-      <app-number-squared [number]="currentQuestion.number1"></app-number-squared>
+    <div class="question-box">
+      <app-number-squared [number]="currentQuestion.operand1"></app-number-squared>
+
       <span class="math-sign multiplication-sign">x</span>
-      <app-number-squared [number]="currentQuestion.number2"></app-number-squared>
+
+      <app-number-squared [number]="currentQuestion.operand2"></app-number-squared>
+
       <span class="math-sign">=</span>
+
       <app-math-answer-input
-        [value]="userAnswer"
+        [value]="currentAnswer"
         (enterKeyPressed)="checkAnswer()"
-        (valueChanged)="userAnswer = $event"
+        (valueChanged)="currentAnswer = $event"
         [isAnswerWrong]="isAnswerWrong"
       />
     </div>
 
     <button (click)="checkAnswer()">Comprobar</button>
+  </div>
+
+  <div *ngIf="!currentQuestion" class="content">
+    <h2 class="success">¡¡¡Felicidades!!! Completaste todos los ejercicios</h2>
+
+    <div class="attempts-table">
+      <span class="header">Ejercicios</span>
+      <span class="header">Intentos</span>
+      <ng-container *ngFor="let result of userResults">
+        <span>{{ result.operand1 }} x {{ result.operand2 }}</span>
+        <span>{{ result.attemptsNumber }}</span>
+      </ng-container>
+    </div>
+
+    <button (click)="restartQuiz()">Reiniciar</button>
   </div>
 
   <img

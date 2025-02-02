@@ -3,7 +3,7 @@
   (change)="onValueChange($event)"
   [class.wrong-answer]="isAnswerWrong"
   (keyup.enter)="enterKeyPressed.emit()"
-  [value]="value"
+  [value]="value ?? ''"
 />
 <span
   *ngIf="isAnswerWrong"
