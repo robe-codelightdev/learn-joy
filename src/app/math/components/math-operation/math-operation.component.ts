@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, Input, Output, signal} from '@angular/core';
+import {Component, computed, Input, signal} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 
 import {NumberPlanetComponent} from "../number-planet/number-planet.component";
