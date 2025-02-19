@@ -30,8 +30,8 @@ export class MathService {
 
   public generateAdditionQuiz(): MathQuestion[] {
     const questions = [];
-    for (let i = 1; i <= 2; i++) {
-      for (let j = i; j <= 2; j++) {
+    for (let i = 1; i <= 9; i++) {
+      for (let j = i; j <= 9; j++) {
         // shuffle the operands
         const operands = this.shuffleArray([i, j]);
 
