@@ -1,0 +1,44 @@
+.planet {
+  --size: 48px;
+
+  align-items: center;
+  animation: float 3s infinite ease-in-out alternate;
+  background: radial-gradient(circle at 30% 30%, #ffffff33, transparent), radial-gradient(circle at 70% 70%, #00000055, transparent);
+  border-radius: 50%;
+  box-shadow: inset -8px -8px 10px rgba(0, 0, 0, 0.4), 0 0 16px rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  height: var(--size);
+  position: relative;
+  width: var(--size);
+}
+
+.planet-number {
+  --font-size: 2rem;
+  font-size: var(--font-size);
+  font-weight: bold;
+}
+
+.planet.small {
+  --size: 32px;
+}
+
+.planet.small .planet-number {
+  --font-size: 1.5rem;
+}
+
+.planet.medium {
+  --size: 48px;
+}
+
+.planet.medium .planet-number {
+  --font-size: 2rem;
+}
+
+.planet.large {
+  --size: 64px;
+}
+
+.planet.large .planet-number {
+  --font-size: 2.5rem;
+}

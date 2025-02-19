@@ -1,6 +1,39 @@
 html, body {
-  color: rgb(55 55 60);
-  font-family: 'Roboto', system-ui, sans-serif;
+  background: rgb(14 30 53);
+  color: rgb(255 255 255);
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
   font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
   margin: 0;
+  padding: 0;
+}
+
+.fredoka-bold {
+  font-family: "Fredoka", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.fredoka-regular {
+  font-family: "Fredoka", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.quicksand-regular {
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
 }

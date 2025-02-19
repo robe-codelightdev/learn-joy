@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<main>
+  <nav>
+    <app-nav-item
+      class="moon"
+      href="math/addition"
+      imageAlt="moon"
+      imageHeight="120"
+      imageSrc="assets/images/moon.avif"
+      imageWidth="120"
+      text="SUMA"
+    ></app-nav-item>
+
+    <app-nav-item
+      class="astronaut"
+      href="math/multiplication"
+      imageAlt="astronaut"
+      imageHeight="204"
+      imageSrc="assets/images/astronaut.avif"
+      imageWidth="198"
+      text="MULTIPLICA"
+    ></app-nav-item>
+  </nav>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</main>

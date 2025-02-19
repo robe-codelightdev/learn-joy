@@ -19,3 +19,13 @@ export interface MathAnswerAttempt {
   question: MathQuestion;
   userAnswer: number;
 }
+
+export interface MathQuestionSolvedEvent {
+  question: MathQuestion;
+  userAttempts: MathAnswerAttempt[];
+}
+
+export interface MathQuizSummaryItem {
+  question: MathQuestion;
+  numberOfAttempts: number;
+}

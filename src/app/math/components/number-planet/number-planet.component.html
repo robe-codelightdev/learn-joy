@@ -1,0 +1,12 @@
+<div
+  [ngClass]="['planet', planetSize]"
+  [style.animationDelay]="animationDelay"
+  [style.backgroundColor]="planetColor"
+>
+  <span
+    class="planet-number"
+    [style.color]="numberColor"
+  >
+    {{ planetNumber }}
+  </span>
+</div>

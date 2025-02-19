@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+@keyframes shadowOscillation {
+  0%, 100% {
+    text-shadow: 0 0 10px rgb(253 216 53 / 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgb(253 216 53 / 0.8);
+  }
+}
+
+h2, h3, span {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.star {
+  animation: shadowOscillation 1.5s infinite ease-in-out;
+}
+
+
+
+
+
+

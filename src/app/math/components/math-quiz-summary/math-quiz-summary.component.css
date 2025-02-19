@@ -1,0 +1,29 @@
+.summary-table {
+  backdrop-filter: blur(5px);
+  background: rgb(14 30 53);
+  border-radius: 10px;
+  border-collapse: collapse;
+  margin: 20px auto;
+  max-width: 500px;
+  overflow: hidden;
+  width: 80%;
+}
+
+.summary-table th, .summary-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 0.1);
+  padding: 12px;
+  text-align: center;
+}
+
+.summary-table thead {
+  background: rgb(255 255 255 / 0.3);
+}
+
+.summary-table th {
+  font-weight: bold;
+}
+
+.summary-table tr:nth-child(even) {
+  background: rgb(255 255 255 / 0.15);
+}

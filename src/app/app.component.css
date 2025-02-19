@@ -1,0 +1,62 @@
+:host {
+  ::ng-deep .astronaut img {
+    height: auto;
+    width: 70px;
+  }
+
+  ::ng-deep .moon img {
+    height: auto;
+    width: 50px;
+  }
+}
+
+main {
+  align-items: center;
+  background: url('/assets/images/space-bg-hd.avif') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100dvh - 2px);
+  padding: 1px;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  top: 0;
+  translate: -50%;
+  width: 100%;
+}
+
+.astronaut, .earth, .moon, .planet {
+  position: absolute;
+}
+
+.astronaut {
+  top: 5vh;
+  left: 7vw;
+}
+
+.earth {
+  top: 20px;
+  right: 60px;
+}
+
+.moon {
+  top: 16vh;
+  right: 12vw;
+}
+
+.planet {
+  bottom: 20px;
+  left: 60px;
+}
+
+.rocket {
+  bottom: 100px;
+  left: 60px;
+}
+
+

@@ -1,0 +1,15 @@
+<table class="summary-table">
+  <thead>
+  <tr>
+    <th>Ejercicio</th>
+    <th>Intentos</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mathQuizSummaryItems">
+    <td>{{ item.question.operand1 }} {{ item.question.operator }} {{ item.question.operand2 }}</td>
+    <td>{{ item.numberOfAttempts }}</td>
+  </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,33 @@
+a {
+  align-items: center;
+  color: rgb(255 255 255);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
+a:focus, a:hover, a:active, a:focus-visible, a:visited {
+  color: rgb(255 255 255);
+}
+
+img {
+  animation: float 3s infinite ease-in-out alternate;
+}
+
+span {
+  display: none;
+  font-weight: bold;
+}
+
+.nav-active {
+  filter: drop-shadow(0 0 10px rgb(18 175 164 / 0.9));
+  transform: scale(1.3);
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-active span {
+  display: block;
+  font-size: 0.7rem;
+}

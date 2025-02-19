@@ -1,0 +1,13 @@
+.question-container {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.math-sign {
+  color: rgb(255 255 255);
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 3px 8px rgb(14 30 53), 0 -3px 8px rgb(14 30 53);
+}

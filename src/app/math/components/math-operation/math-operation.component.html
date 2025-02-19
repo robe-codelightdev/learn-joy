@@ -1,0 +1,19 @@
+<div *ngIf="currentQuestionIndex() !== questions().length">
+  <span>Completado {{ currentQuestionIndex() + 1 }} / {{ questions().length }} </span>
+
+  <app-math-question
+    [question]="currentQuestion()"
+    (questionSolved)="onQuestionSolved($event)"
+  >
+  </app-math-question>
+</div>
+
+<div *ngIf="currentQuestionIndex() === questions().length">
+  <app-celebration></app-celebration>
+
+  <ng-container *ngIf="failedQuestions().length">
+    <app-math-quiz-summary
+      [mathQuizSummaryItems]="failedQuestions()"
+    ></app-math-quiz-summary>
+  </ng-container>
+</div>

@@ -1,0 +1,24 @@
+<div class="question-container">
+  <app-number-planet
+    [planetNumber]="question.operand1"
+    [planetColor]="operand1BgColor"
+    [planetSize]="operand1Size">
+  </app-number-planet>
+
+  <span class="math-sign">{{ question.operator }}</span>
+
+  <app-number-planet
+    [planetNumber]="question.operand2"
+    [planetColor]="operand2BgColor"
+    [planetSize]="operand2Size"></app-number-planet>
+
+  <span class="math-sign">=</span>
+
+  <app-math-answer-input
+    [value]="currentAnswer()"
+    (enterKeyPressed)="checkAnswer()"
+    (valueChanged)="onAnswerInputChange($event)"
+    [isAnswerWrong]="isAnswerWrong()"
+  />
+</div>
+

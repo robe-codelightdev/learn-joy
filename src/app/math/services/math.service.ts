@@ -28,6 +28,28 @@ export class MathService {
     return this.shuffleArray(questions);
   }
 
+  public generateAdditionQuiz(): MathQuestion[] {
+    const questions = [];
+    for (let i = 1; i <= 2; i++) {
+      for (let j = i; j <= 2; j++) {
+        // shuffle the operands
+        const operands = this.shuffleArray([i, j]);
+
+        const question: MathQuestion = {
+          id: questions.length + 1,
+          operand1: operands[0],
+          operand2: operands[1],
+          operator: MathOperator.Addition,
+          correctAnswer: i + j,
+        };
+
+        questions.push(question);
+      }
+    }
+
+    return this.shuffleArray(questions);
+  }
+
   private shuffleArray(array: any[]) {
     return array.sort(() => Math.random() - 0.5);
   }
