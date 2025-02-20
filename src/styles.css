@@ -1,3 +1,8 @@
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
 html, body {
   background: rgb(14 30 53);
   color: rgb(255 255 255);
@@ -26,6 +31,12 @@ html, body {
   font-variation-settings: "wdth" 100;
 }
 
+.glass-box {
+  background: rgb(0 0 0 / 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
 .quicksand-regular {
   font-family: "Quicksand", serif;
   font-optical-sizing: auto;
@@ -33,7 +44,3 @@ html, body {
   font-style: normal;
 }
 
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-5px); }
-}

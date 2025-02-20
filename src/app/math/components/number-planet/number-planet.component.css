@@ -10,6 +10,7 @@
   justify-content: center;
   height: var(--size);
   position: relative;
+  transition: all 1s linear;
   width: var(--size);
 }
 

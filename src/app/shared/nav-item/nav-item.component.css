@@ -19,6 +19,7 @@ img {
 span {
   display: none;
   font-weight: bold;
+  padding: 1px 8px;
 }
 
 .nav-active {

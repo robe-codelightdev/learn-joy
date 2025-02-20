@@ -3,6 +3,15 @@
   flex-direction: column;
   gap: 10px;
   justify-content: center;
+  position: relative;
+}
+
+@keyframes popper {
+  0% { transform: scale(0.8); opacity: 0; }
+  30% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); }
+  70% { transform: scale(1.7); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0;}
 }
 
 @keyframes shadowOscillation {
@@ -12,6 +21,18 @@
   50% {
     text-shadow: 0 0 20px rgb(253 216 53 / 0.8);
   }
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 300px;
+  padding: 15px;
+  position: relative;
+  width: 80%;
 }
 
 h2, h3, span {
@@ -24,11 +45,37 @@ h2, h3, span {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .star {
   animation: shadowOscillation 1.5s infinite ease-in-out;
+  font-size: 2.5rem;
+}
+
+.fireworks {
+  animation: popper 3s linear;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.f1 {
+  animation-delay: 0s;
+  top: 0;
+  left: 10%;
+}
+
+.f2 {
+  animation-delay: 2.5s;
+  top: 40%;
+  right: 0;
+}
+
+.f3 {
+  animation-delay: 3.8s;
+  bottom: -25%;
+  left: 50%;
 }
 
 

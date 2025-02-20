@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
 
+import {shuffleArray} from "../../shared/helpers/shuffle-array";
+
 import {MathOperator, MathQuestion} from "../models/math.model";
 
 @Injectable({
@@ -11,7 +13,7 @@ export class MathService {
     for (let i = 2; i <= 9; i++) {
       for (let j = i; j <= 9; j++) {
         // shuffle the operands
-        const operands = this.shuffleArray([i, j]);
+        const operands = shuffleArray([i, j]);
 
         const question: MathQuestion = {
           id: questions.length + 1,
@@ -25,7 +27,7 @@ export class MathService {
       }
     }
 
-    return this.shuffleArray(questions);
+    return shuffleArray(questions);
   }
 
   public generateAdditionQuiz(): MathQuestion[] {
@@ -33,7 +35,7 @@ export class MathService {
     for (let i = 1; i <= 9; i++) {
       for (let j = i; j <= 9; j++) {
         // shuffle the operands
-        const operands = this.shuffleArray([i, j]);
+        const operands = shuffleArray([i, j]);
 
         const question: MathQuestion = {
           id: questions.length + 1,
@@ -47,10 +49,6 @@ export class MathService {
       }
     }
 
-    return this.shuffleArray(questions);
-  }
-
-  private shuffleArray(array: any[]) {
-    return array.sort(() => Math.random() - 0.5);
+    return shuffleArray(questions);
   }
 }

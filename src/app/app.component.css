@@ -1,12 +1,12 @@
 :host {
   ::ng-deep .astronaut img {
     height: auto;
-    width: 70px;
+    width: 75px;
   }
 
   ::ng-deep .moon img {
     height: auto;
-    width: 50px;
+    width: 55px;
   }
 }
 
@@ -19,6 +19,7 @@ main {
   min-height: calc(100dvh - 2px);
   padding: 1px;
   position: relative;
+  overflow: hidden;
 }
 
 nav {

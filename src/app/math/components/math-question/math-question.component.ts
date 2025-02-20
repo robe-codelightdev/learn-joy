@@ -1,4 +1,15 @@
-import {Component, computed, EventEmitter, Input, Output, signal} from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  signal,
+  SimpleChanges
+} from '@angular/core';
+
+import {shuffleArray} from "../../../shared/helpers/shuffle-array";
 
 import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.component";
 import {NumberPlanetComponent} from "../number-planet/number-planet.component";
@@ -12,7 +23,7 @@ import {PlanetColors, PlanetSizes} from "../../models/planet.enum";
   templateUrl: './math-question.component.html',
   styleUrl: './math-question.component.css'
 })
-export class MathQuestionComponent {
+export class MathQuestionComponent implements OnChanges {
   @Input()
   public question!: MathQuestion;
 
@@ -27,12 +38,22 @@ export class MathQuestionComponent {
     this.currentAnswer() !== this.question.correctAnswer)
   );
 
-  public operand1BgColor = PlanetColors.ALIEN_GREEN;
-  public operand1Size = PlanetSizes.LARGE;
-  public operand2BgColor = PlanetColors.FIRE_ORANGE;
-  public operand2Size = PlanetSizes.LARGE;
+  public operand1BgColor!: PlanetColors;
+  public operand1Size!: PlanetSizes;
+  public operand2BgColor!: PlanetColors;
+  public operand2Size!: PlanetSizes;
 
   private userAttempts = signal<MathAnswerAttempt[]>([]);
+
+  public constructor() {
+    this.initOperands();
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['question']) {
+      this.initOperands();
+    }
+  }
 
   public checkAnswer(): void {
     const userAttempt = this.addUserAttempt();
@@ -66,5 +87,12 @@ export class MathQuestionComponent {
     this.userAttempts().push(attempt);
 
     return attempt;
+  }
+
+  private initOperands(): void {
+    this.operand1BgColor = shuffleArray(Object.values(PlanetColors))[0];
+    this.operand1Size = shuffleArray(Object.values(PlanetSizes))[0];
+    this.operand2BgColor = shuffleArray(Object.values(PlanetColors))[0];
+    this.operand2Size = shuffleArray(Object.values(PlanetSizes))[0];
   }
 }

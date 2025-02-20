@@ -1,6 +1,7 @@
 <input
   type="number"
   (change)="onValueChange($event)"
+  [class.shake]="shake()"
   [class.wrong-answer]="isAnswerWrong"
   (keyup.enter)="enterKeyPressed.emit()"
   [value]="value ?? ''"
