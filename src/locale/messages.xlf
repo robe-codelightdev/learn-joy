@@ -5,11 +5,32 @@
       <trans-unit id="appName" datatype="html">
         <source>Learn JOY</source>
       </trans-unit>
-      <trans-unit id="mathOperationAddition" datatype="html">
+      <trans-unit id="appAddition" datatype="html">
         <source>Add</source>
       </trans-unit>
       <trans-unit id="mathOperationMultiplication" datatype="html">
         <source>Multiply</source>
+      </trans-unit>
+      <trans-unit id="appAdditionImageAlt" datatype="html">
+        <source>moon</source>
+      </trans-unit>
+      <trans-unit id="appMultiplicationImageAlt" datatype="html">
+        <source>astronaut</source>
+      </trans-unit>
+      <trans-unit id="celebrationSubtitle" datatype="html">
+        <source> You have completed all the questions </source>
+      </trans-unit>
+      <trans-unit id="celebrationTitle" datatype="html">
+        <source>Congratulations!</source>
+      </trans-unit>
+      <trans-unit id="mathOperationProgress" datatype="html">
+        <source>Completed <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
+      </trans-unit>
+      <trans-unit id="mathQuizSummaryAttempts" datatype="html">
+        <source>Attempts</source>
+      </trans-unit>
+      <trans-unit id="mathQuizSummaryQuestion" datatype="html">
+        <source>Question</source>
       </trans-unit>
     </body>
   </file>

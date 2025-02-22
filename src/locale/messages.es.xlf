@@ -6,13 +6,41 @@
         <source>Learn JOY</source>
         <target>Learn JOY</target>
       </trans-unit>
-      <trans-unit id="mathOperationAddition" datatype="html">
+      <trans-unit id="appAddition" datatype="html">
         <source>Add</source>
         <target state="new">Suma</target>
       </trans-unit>
       <trans-unit id="mathOperationMultiplication" datatype="html">
         <source>Multiply</source>
         <target state="new">Multiplica</target>
+      </trans-unit>
+      <trans-unit id="appAdditionImageAlt" datatype="html">
+        <source>moon</source>
+        <target state="new">luna</target>
+      </trans-unit>
+      <trans-unit id="appMultiplicationImageAlt" datatype="html">
+        <source>astronaut</source>
+        <target state="new">astronauta</target>
+      </trans-unit>
+      <trans-unit id="celebrationTitle" datatype="html">
+        <source>Congratulations!</source>
+        <target state="new">¡Felicidades!</target>
+      </trans-unit>
+      <trans-unit id="celebrationSubtitle" datatype="html">
+        <source> You have completed all the questions </source>
+        <target state="new"> Has completado todas las preguntas </target>
+      </trans-unit>
+      <trans-unit id="mathOperationProgress" datatype="html">
+        <source>Completed <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
+        <target state="new">Completado <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </target>
+      </trans-unit>
+      <trans-unit id="mathQuizSummaryQuestion" datatype="html">
+        <source>Question</source>
+        <target state="new">Ejercicio</target>
+      </trans-unit>
+      <trans-unit id="mathQuizSummaryAttempts" datatype="html">
+        <source>Attempts</source>
+        <target state="new">Intentos</target>
       </trans-unit>
     </body>
   </file>

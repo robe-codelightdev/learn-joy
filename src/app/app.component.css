@@ -36,8 +36,8 @@ nav {
 }
 
 .astronaut {
-  top: 5vh;
-  left: 7vw;
+  top: 6vh;
+  left: 8vw;
 }
 
 .earth {
@@ -58,6 +58,42 @@ nav {
 .rocket {
   bottom: 100px;
   left: 60px;
+}
+
+@media screen and (min-width: 425px) {
+  .astronaut {
+    left: 10vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .astronaut {
+    left: 20vw;
+  }
+
+  .moon {
+    right: 22vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .astronaut {
+    left: 30vw;
+  }
+
+  .moon {
+    right: 25vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .astronaut {
+    left: 32vw;
+  }
+
+  .moon {
+    right: 30vw;
+  }
 }
 
 

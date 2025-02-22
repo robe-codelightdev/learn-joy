@@ -43,3 +43,81 @@
 .planet.large .planet-number {
   --font-size: 2.5rem;
 }
+
+@media screen and (min-width: 375px) {
+  .planet.small {
+    --size: 48px;
+  }
+
+  .planet.small .planet-number {
+    --font-size: 2rem;
+  }
+
+  .planet.medium {
+    --size: 64px;
+  }
+
+  .planet.medium .planet-number {
+    --font-size: 2.5rem;
+  }
+
+  .planet.large {
+    --size: 80px;
+  }
+
+  .planet.large .planet-number {
+    --font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .planet.small {
+    --size: 64px;
+  }
+
+  .planet.small .planet-number {
+    --font-size: 2.5rem;
+  }
+
+  .planet.medium {
+    --size: 80px;
+  }
+
+  .planet.medium .planet-number {
+    --font-size: 3rem;
+  }
+
+  .planet.large {
+    --size: 96px;
+  }
+
+  .planet.large .planet-number {
+    --font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .planet.small {
+    --size: 80px;
+  }
+
+  .planet.small .planet-number {
+    --font-size: 3rem;
+  }
+
+  .planet.medium {
+    --size: 96px;
+  }
+
+  .planet.medium .planet-number {
+    --font-size: 3.5rem;
+  }
+
+  .planet.large {
+    --size: 112px;
+  }
+
+  .planet.large .planet-number {
+    --font-size: 4rem;
+  }
+}

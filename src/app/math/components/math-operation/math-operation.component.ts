@@ -59,7 +59,6 @@ export class MathOperationComponent {
 
   public questions = signal<MathQuestion[]>([]);
 
-
   // store user attempts for each question
   private userAttemptsMap: Map<number, MathAnswerAttempt[]> = new Map();
 
@@ -73,10 +72,5 @@ export class MathOperationComponent {
     const {question, userAttempts} = event;
     this.userAttemptsMap.set(question.id, userAttempts);
     this.currentQuestionIndex.set(this.currentQuestionIndex() + 1);
-  }
-
-  public restart(): void {
-    this.questions.set(this.mathService.generateAdditionQuiz());
-    this.currentQuestionIndex.set(0);
   }
 }
