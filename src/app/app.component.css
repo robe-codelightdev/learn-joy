@@ -12,7 +12,7 @@
 
 main {
   align-items: center;
-  background: url('/assets/images/space-bg-hd.avif') no-repeat center center fixed;
+  background: url('../assets/images/space-bg-hd.avif') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
