@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "learn-joy": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": "src/locale/messages.es.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": ["es"],
             "outputPath": "dist/learn-joy",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -49,7 +56,8 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
-            }
+            },
+
           },
           "defaultConfiguration": "production"
         },
