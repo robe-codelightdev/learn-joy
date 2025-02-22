@@ -73,9 +73,15 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "buildTarget": "learn-joy:build"
+            "buildTarget": "learn-joy:build",
+            "format": "xlf",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.es.xlf",
+              "messages.xlf"
+            ]
           }
         },
         "test": {
