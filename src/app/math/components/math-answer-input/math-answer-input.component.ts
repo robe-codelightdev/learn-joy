@@ -1,5 +1,6 @@
 import {Component, effect, EventEmitter, Input, OnChanges, Output, signal, SimpleChanges} from '@angular/core';
 import {NgIf} from "@angular/common";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-math-answer-input',
@@ -17,11 +18,7 @@ export class MathAnswerInputComponent implements OnChanges {
   @Input()
   public value: number | undefined = undefined;
 
-  @Output()
-  public enterKeyPressed = new EventEmitter<void>();
-
-  @Output()
-  public valueChanged = new EventEmitter<number | undefined>();
+  public inputChanges = new Subject<number>();
 
   public shake = signal(false);
 
@@ -35,14 +32,16 @@ export class MathAnswerInputComponent implements OnChanges {
 
   public ngOnChanges(changes: SimpleChanges): void {
     // if the value is changed and the answer is wrong, shake the input
-    if (changes['value'] && this.isAnswerWrong) {
+    if (changes['isAnswerWrong']) {
       this.shake.set(true);
     }
   }
 
-  public onValueChange(event: Event): void {
+  public onInputChange(event: Event): void {
     const value = (event.target as HTMLInputElement)?.value;
-    this.value = value ? Number(value) : undefined;
-    this.valueChanged.emit(this.value);
+
+    if (!Boolean(value.trim()) || isNaN(Number(value))) { return; }
+
+    this.inputChanges.next(Number(value));
   }
 }

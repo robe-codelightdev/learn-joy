@@ -16,8 +16,6 @@
 
   <app-math-answer-input
     [value]="currentAnswer()"
-    (enterKeyPressed)="checkAnswer()"
-    (valueChanged)="onAnswerInputChange($event)"
     [isAnswerWrong]="isAnswerWrong()"
   />
 </div>

@@ -1,20 +1,22 @@
 import {
+  AfterViewInit,
   Component,
   computed,
   EventEmitter,
   Input,
-  OnChanges,
+  OnChanges, OnDestroy,
   Output,
   signal,
-  SimpleChanges
+  SimpleChanges, ViewChild
 } from '@angular/core';
+import {debounce, debounceTime, distinctUntilChanged, Subscription, tap} from "rxjs";
 
 import {shuffleArray} from "../../../shared/helpers/shuffle-array";
 
+import {PlanetColors, PlanetSizes} from "../../models/planet.enum";
+import {MathAnswerAttempt, MathQuestion, MathQuestionSolvedEvent} from "../../models/math.model";
 import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.component";
 import {NumberPlanetComponent} from "../number-planet/number-planet.component";
-import {MathAnswerAttempt, MathQuestion, MathQuestionSolvedEvent} from "../../models/math.model";
-import {PlanetColors, PlanetSizes} from "../../models/planet.enum";
 
 @Component({
   selector: 'app-math-question',
@@ -23,30 +25,41 @@ import {PlanetColors, PlanetSizes} from "../../models/planet.enum";
   templateUrl: './math-question.component.html',
   styleUrl: './math-question.component.css'
 })
-export class MathQuestionComponent implements OnChanges {
+export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestroy {
   @Input()
   public question!: MathQuestion;
 
   @Output()
   public questionSolved = new EventEmitter<MathQuestionSolvedEvent>();
 
+  @ViewChild(MathAnswerInputComponent)
+  public answerInput!: MathAnswerInputComponent;
+
   public currentAnswer = signal<number | undefined>(undefined);
 
-  // it is wrong answer if it has value and is not equal to the correct answer
-  public isAnswerWrong = computed(() => Boolean(
-    this.currentAnswer() &&
-    this.currentAnswer() !== this.question.correctAnswer)
-  );
+  public isAnswerWrong = signal<boolean>(false);
 
   public operand1BgColor!: PlanetColors;
   public operand1Size!: PlanetSizes;
   public operand2BgColor!: PlanetColors;
   public operand2Size!: PlanetSizes;
 
+  private inputChangesSubscription!: Subscription;
   private userAttempts = signal<MathAnswerAttempt[]>([]);
 
   public constructor() {
     this.initOperands();
+  }
+
+  public ngAfterViewInit(): void {
+    this.inputChangesSubscription = this.answerInput.inputChanges
+      .pipe(
+        tap((value: number) => this.currentAnswer.set(value)),
+        debounceTime(600),
+      )
+      .subscribe((value: number) => {
+        this.checkAnswer(value);
+      });
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -55,31 +68,39 @@ export class MathQuestionComponent implements OnChanges {
     }
   }
 
-  public checkAnswer(): void {
-    const userAttempt = this.addUserAttempt();
+  public ngOnDestroy(): void {
+    this.inputChangesSubscription?.unsubscribe();
+  }
 
-    if (userAttempt && userAttempt.isCorrect) {
-      this.questionSolved.emit({
-        question: userAttempt.question,
-        userAttempts: this.userAttempts(),
-      });
-      this.currentAnswer.set(undefined);
-      this.userAttempts.set([]);
+  public checkAnswer(answer: number): void {
+    const userAttempt = this.addUserAttempt(answer);
+
+    if (!userAttempt) {
+      return;
     }
+
+    if (!userAttempt.isCorrect) {
+      this.isAnswerWrong.set(true);
+      return;
+    }
+
+    this.questionSolved.emit({
+      question: userAttempt.question,
+      userAttempts: this.userAttempts(),
+    });
+    this.currentAnswer.set(undefined);
+    this.userAttempts.set([]);
+    this.isAnswerWrong.set(false);
   }
 
-  public onAnswerInputChange(answer: number | undefined): void {
-    this.currentAnswer.set(answer);
-  }
-
-  private addUserAttempt(): MathAnswerAttempt | null {
-    if (!this.question || !this.currentAnswer()) {
+  private addUserAttempt(answer: number): MathAnswerAttempt | null {
+    if (!this.question || !answer) {
       return null;
     }
 
     const attempt = {
-      userAnswer: this.currentAnswer() as number,
-      isCorrect: this.currentAnswer() === this.question.correctAnswer,
+      userAnswer: answer,
+      isCorrect: answer === this.question.correctAnswer,
       question: this.question,
       attemptNumber: this.userAttempts().length + 1,
     };
