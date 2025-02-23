@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   Component,
-  computed,
   EventEmitter,
   Input,
   OnChanges, OnDestroy,
@@ -9,7 +8,7 @@ import {
   signal,
   SimpleChanges, ViewChild
 } from '@angular/core';
-import {debounce, debounceTime, distinctUntilChanged, Subscription, tap} from "rxjs";
+import {debounceTime, Subscription, tap} from "rxjs";
 
 import {shuffleArray} from "../../../shared/helpers/shuffle-array";
 

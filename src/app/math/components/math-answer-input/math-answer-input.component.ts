@@ -1,4 +1,4 @@
-import {Component, effect, EventEmitter, Input, OnChanges, Output, signal, SimpleChanges} from '@angular/core';
+import {Component, effect, Input, OnChanges, signal, SimpleChanges} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {Subject} from "rxjs";
 
