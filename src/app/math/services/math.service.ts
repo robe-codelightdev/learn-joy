@@ -10,8 +10,8 @@ import {MathOperator, MathQuestion} from "../models/math.model";
 export class MathService {
   public generateMultiplicationQuiz(): MathQuestion[] {
     const questions = [];
-    for (let i = 2; i <= 2; i++) {
-      for (let j = i; j <= 2; j++) {
+    for (let i = 2; i <= 9; i++) {
+      for (let j = i; j <= 9; j++) {
         // shuffle the operands
         const operands = shuffleArray([i, j]);
 

@@ -36,7 +36,9 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
 
   public currentAnswer = signal<number | undefined>(undefined);
 
-  public isAnswerWrong = signal<boolean>(false);
+  // It increments for each wrong answer (1, 2, 3...) and resets to 0 when the answer is correct.
+  // This allows us to determine whether to shake the answer input or not each time the answer is wrong.
+  public isAnswerWrong = signal<number>(0);
 
   public operand1BgColor!: PlanetColors;
   public operand1Size!: PlanetSizes;
@@ -53,10 +55,12 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
   public ngAfterViewInit(): void {
     this.inputChangesSubscription = this.answerInput.inputChanges
       .pipe(
-        tap((value: number) => this.currentAnswer.set(value)),
+        tap((value: number | undefined) => {
+          this.currentAnswer.set(value);
+        }),
         debounceTime(600),
       )
-      .subscribe((value: number) => {
+      .subscribe((value: number | undefined) => {
         this.checkAnswer(value);
       });
   }
@@ -71,7 +75,11 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
     this.inputChangesSubscription?.unsubscribe();
   }
 
-  public checkAnswer(answer: number): void {
+  public checkAnswer(answer: number | undefined): void {
+    if (answer === undefined) {
+      return;
+    }
+
     const userAttempt = this.addUserAttempt(answer);
 
     if (!userAttempt) {
@@ -79,7 +87,7 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
     }
 
     if (!userAttempt.isCorrect) {
-      this.isAnswerWrong.set(true);
+      this.isAnswerWrong.set(this.isAnswerWrong() + 1);
       return;
     }
 
@@ -89,7 +97,7 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
     });
     this.currentAnswer.set(undefined);
     this.userAttempts.set([]);
-    this.isAnswerWrong.set(false);
+    this.isAnswerWrong.set(0);
   }
 
   private addUserAttempt(answer: number): MathAnswerAttempt | null {

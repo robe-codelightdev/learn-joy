@@ -13,12 +13,12 @@ import {Subject} from "rxjs";
 })
 export class MathAnswerInputComponent implements OnChanges {
   @Input()
-  public isAnswerWrong = false;
+  public isAnswerWrong = 0;
 
   @Input()
   public value: number | undefined = undefined;
 
-  public inputChanges = new Subject<number>();
+  public inputChanges = new Subject<number | undefined>();
 
   public shake = signal(false);
 
@@ -40,7 +40,10 @@ export class MathAnswerInputComponent implements OnChanges {
   public onInputChange(event: Event): void {
     const value = (event.target as HTMLInputElement)?.value;
 
-    if (!Boolean(value.trim()) || isNaN(Number(value))) { return; }
+    if (!Boolean(value.trim()) || isNaN(Number(value))) {
+      this.inputChanges.next(undefined);
+      return;
+    }
 
     this.inputChanges.next(Number(value));
   }
