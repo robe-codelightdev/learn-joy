@@ -1,7 +1,6 @@
 import {Component, computed, Input, signal} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import {NgIf} from "@angular/common";
 
-import {NumberPlanetComponent} from "../number-planet/number-planet.component";
 import {
   MathAnswerAttempt,
   MathOperator,
@@ -9,8 +8,6 @@ import {
   MathQuestionSolvedEvent,
   MathQuizSummaryItem
 } from "../../models/math.model";
-import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.component";
-import {MathService} from "../../services/math.service";
 import {CelebrationComponent} from "../celebration/celebration.component";
 import {MathQuestionComponent} from "../math-question/math-question.component";
 import {MathQuizSummaryComponent} from "../math-quiz-summary/math-quiz-summary.component";
@@ -20,11 +17,8 @@ import {MathQuizSummaryComponent} from "../math-quiz-summary/math-quiz-summary.c
   standalone: true,
   imports: [
     CelebrationComponent,
-    MathAnswerInputComponent,
     MathQuestionComponent,
-    NgForOf,
     NgIf,
-    NumberPlanetComponent,
     MathQuizSummaryComponent,
   ],
   templateUrl: './math-operation.component.html',
