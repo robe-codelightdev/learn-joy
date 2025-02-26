@@ -1,30 +1,40 @@
-<main>
-  <nav>
-    <app-nav-item
-      class="moon"
-      href="math/addition"
-      imageAlt="moon"
-      imageHeight="120"
-      imageSrc="assets/images/moon.avif"
-      imageWidth="120"
-      text="Add"
-      i18n-text="@@appAddition"
-      i18n-imageAlt="@@appAdditionImageAlt"
-    ></app-nav-item>
+<nav>
+  <app-nav-item
+    class="moon"
+    href="math/addition"
+    imageAlt="moon"
+    imageHeight="120"
+    imageSrc="assets/images/moon.avif"
+    imageWidth="120"
+    text="Add"
+    i18n-text="@@appAddition"
+    i18n-imageAlt="@@appAdditionImageAlt"
+  ></app-nav-item>
 
-    <app-nav-item
-      class="astronaut"
-      href="math/multiplication"
-      imageAlt="astronaut"
-      imageHeight="204"
-      imageSrc="assets/images/astronaut.avif"
-      imageWidth="198"
-      text="Multiply"
-      i18n-text="@@mathOperationMultiplication"
-      i18n-imageAlt="@@appMultiplicationImageAlt"
-    ></app-nav-item>
-  </nav>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
+  <app-nav-item
+    class="astronaut"
+    href="math/multiplication"
+    imageAlt="astronaut"
+    imageHeight="204"
+    imageSrc="assets/images/astronaut.avif"
+    imageWidth="198"
+    text="Multiply"
+    i18n-text="@@mathOperationMultiplication"
+    i18n-imageAlt="@@appMultiplicationImageAlt"
+  ></app-nav-item>
+
+  <app-nav-item
+    class="rocket"
+    href="math/subtraction"
+    imageAlt="rocket"
+    imageHeight="197"
+    imageSrc="assets/images/rocket.avif"
+    imageWidth="160"
+    text="Subtraction"
+    i18n-text="@@mathOperationSubtraction"
+    i18n-imageAlt="@@appSubtractionImageAlt"
+  ></app-nav-item>
+</nav>
+<main>
+  <router-outlet></router-outlet>
 </main>

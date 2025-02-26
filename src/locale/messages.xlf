@@ -32,6 +32,12 @@
       <trans-unit id="mathQuizSummaryQuestion" datatype="html">
         <source>Question</source>
       </trans-unit>
+      <trans-unit id="appSubtractionImageAlt" datatype="html">
+        <source>rocket</source>
+      </trans-unit>
+      <trans-unit id="mathOperationSubtraction" datatype="html">
+        <source>Subtraction</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

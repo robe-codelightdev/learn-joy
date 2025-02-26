@@ -42,6 +42,14 @@
         <source>Attempts</source>
         <target state="new">Intentos</target>
       </trans-unit>
+      <trans-unit id="appSubtractionImageAlt" datatype="html">
+        <source>rocket</source>
+        <target state="new">cohete</target>
+      </trans-unit>
+      <trans-unit id="mathOperationSubtraction" datatype="html">
+        <source>Subtraction</source>
+        <target state="new">Resta</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

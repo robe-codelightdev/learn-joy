@@ -1,43 +1,55 @@
 :host {
-  ::ng-deep .astronaut img {
-    height: auto;
-    width: 75px;
-  }
-
-  ::ng-deep .moon img {
-    height: auto;
-    width: 55px;
-  }
-}
-
-main {
-  align-items: center;
-  background: url('../assets/images/space-bg-hd.avif') no-repeat center center fixed;
-  background-size: cover;
+  background: url('../assets/images/space-bg-hd.avif') no-repeat center/cover fixed;
   display: flex;
   justify-content: center;
   min-height: calc(100dvh - 2px);
   padding: 1px;
   position: relative;
   overflow: hidden;
+
+  ::ng-deep img {
+    height: auto;
+  }
+
+  ::ng-deep .astronaut img {
+    width: 75px;
+  }
+
+  ::ng-deep .moon img {
+    width: 55px;
+  }
+
+  ::ng-deep .rocket img {
+    width: 60px;
+  }
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100dvh - 2px);
+  text-align: center;
+  z-index: 1;
 }
 
 nav {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  top: 0;
-  translate: -50%;
   width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.astronaut, .earth, .moon, .planet {
+.astronaut, .earth, .moon, .planet, .rocket {
   position: absolute;
+  pointer-events: auto;
+  z-index: 2;
 }
 
 .astronaut {
-  top: 6vh;
-  left: 8vw;
+  top: 6%;
+  left: 8%;
 }
 
 .earth {
@@ -46,8 +58,8 @@ nav {
 }
 
 .moon {
-  top: 16vh;
-  right: 12vw;
+  top: 12%;
+  right: 4%;
 }
 
 .planet {
@@ -56,8 +68,8 @@ nav {
 }
 
 .rocket {
-  bottom: 100px;
-  left: 60px;
+  bottom: 10%;
+  right: 7%;
 }
 
 @media screen and (min-width: 425px) {
@@ -84,9 +96,13 @@ nav {
   .moon {
     right: 25vw;
   }
+
+  .rocket {
+    right: 20%;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .astronaut {
     left: 32vw;
   }
