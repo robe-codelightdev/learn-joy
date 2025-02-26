@@ -58,7 +58,7 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
         tap((value: number | undefined) => {
           this.currentAnswer.set(value);
         }),
-        debounceTime(600),
+        debounceTime(800),
       )
       .subscribe((value: number | undefined) => {
         this.checkAnswer(value);

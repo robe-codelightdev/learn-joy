@@ -62,12 +62,6 @@ export class MathOperationComponent {
   // store user attempts for each question
   private userAttemptsMap: Map<number, MathAnswerAttempt[]> = new Map();
 
-  public constructor(
-    private readonly mathService: MathService,
-  ) {
-    this.questions.set(this.mathService.generateAdditionQuiz());
-  }
-
   public onQuestionSolved(event: MathQuestionSolvedEvent): void {
     const {question, userAttempts} = event;
     this.userAttemptsMap.set(question.id, userAttempts);
