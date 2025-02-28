@@ -38,6 +38,12 @@
       <trans-unit id="mathOperationSubtraction" datatype="html">
         <source>Subtraction</source>
       </trans-unit>
+      <trans-unit id="appDivisionImageAlt" datatype="html">
+        <source>earth</source>
+      </trans-unit>
+      <trans-unit id="mathOperationDivision" datatype="html">
+        <source>Division</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

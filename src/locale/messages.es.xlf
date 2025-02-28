@@ -50,6 +50,14 @@
         <source>Subtraction</source>
         <target state="new">Resta</target>
       </trans-unit>
+      <trans-unit id="appDivisionImageAlt" datatype="html">
+        <source>earth</source>
+        <target state="new">La Tierra</target>
+      </trans-unit>
+      <trans-unit id="mathOperationDivision" datatype="html">
+        <source>Division</source>
+        <target state="new">Divide</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
