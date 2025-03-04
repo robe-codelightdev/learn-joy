@@ -32,14 +32,14 @@ export class MathService {
 
   public generateDivisionQuiz(): MathQuestion[] {
     const questions = [];
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i < 9; i++) {
       for (let j = i; j <= 9; j++) {
         const question: MathQuestion = {
           id: questions.length + 1,
-          operand1:  i * j,
+          operand1:  (i + 1) * j,
           operand2: j,
           operator: MathOperator.Division,
-          correctAnswer: i,
+          correctAnswer: i + 1,
         };
 
         questions.push(question);
