@@ -44,6 +44,12 @@
       <trans-unit id="mathOperationDivision" datatype="html">
         <source>Division</source>
       </trans-unit>
+      <trans-unit id="appMixed" datatype="html">
+        <source>Mixed</source>
+      </trans-unit>
+      <trans-unit id="appMixedImageAlt" datatype="html">
+        <source>planet</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

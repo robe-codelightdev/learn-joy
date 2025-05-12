@@ -36,7 +36,7 @@ export class MathService {
       for (let j = i; j <= 9; j++) {
         const question: MathQuestion = {
           id: questions.length + 1,
-          operand1:  (i + 1) * j,
+          operand1: (i + 1) * j,
           operand2: j,
           operator: MathOperator.Division,
           correctAnswer: i + 1,
@@ -47,6 +47,20 @@ export class MathService {
     }
 
     return shuffleArray(questions);
+  }
+
+  public generateMixedQuiz(): MathQuestion[] {
+    const additionQuestions = shuffleArray(this.generateAdditionQuiz());
+    const subtractionQuestions = shuffleArray(this.generateSubtractionQuiz());
+    const multiplicationQuestions = shuffleArray(this.generateMultiplicationQuiz());
+    const divisionQuestions = shuffleArray(this.generateDivisionQuiz());
+
+    const mixedQuestions: MathQuestion[] = additionQuestions.slice(0, 10)
+      .concat(subtractionQuestions.slice(0, 10))
+      .concat(multiplicationQuestions.slice(0, 10))
+      .concat(divisionQuestions.slice(0, 10));
+
+    return shuffleArray(mixedQuestions);
   }
 
   public generateMultiplicationQuiz(): MathQuestion[] {
@@ -77,7 +91,7 @@ export class MathService {
       for (let j = i; j <= 9; j++) {
         const question: MathQuestion = {
           id: questions.length + 1,
-          operand1:  i + j,
+          operand1: i + j,
           operand2: j,
           operator: MathOperator.Subtraction,
           correctAnswer: i,

@@ -58,6 +58,14 @@
         <source>Division</source>
         <target state="new">Divide</target>
       </trans-unit>
+      <trans-unit id="appMixedImageAlt" datatype="html">
+        <source>planet</source>
+        <target state="new">planeta</target>
+      </trans-unit>
+      <trans-unit id="appMixed" datatype="html">
+        <source>Mixed</source>
+        <target state="new">Variado</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

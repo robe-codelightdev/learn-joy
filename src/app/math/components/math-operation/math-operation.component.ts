@@ -3,7 +3,6 @@ import {NgIf} from "@angular/common";
 
 import {
   MathAnswerAttempt,
-  MathOperator,
   MathQuestion,
   MathQuestionSolvedEvent,
   MathQuizSummaryItem
@@ -25,9 +24,6 @@ import {MathQuizSummaryComponent} from "../math-quiz-summary/math-quiz-summary.c
   styleUrl: './math-operation.component.css'
 })
 export class MathOperationComponent {
-  @Input()
-  public operator!: MathOperator;
-
   @Input()
   public set quiz(quiz: MathQuestion[]) {
     this.questions.set(quiz);

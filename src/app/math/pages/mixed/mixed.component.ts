@@ -1,24 +1,27 @@
 import {Component} from '@angular/core';
 
 import {MathOperationComponent} from "../../components/math-operation/math-operation.component";
-import {MathQuestion} from "../../models/math.model";
+import {MathOperator, MathQuestion} from "../../models/math.model";
 import {MathService} from "../../services/math.service";
 
+
 @Component({
-  selector: 'app-division',
+  selector: 'app-mixed',
   standalone: true,
   imports: [
     MathOperationComponent
   ],
-  templateUrl: './division.component.html',
-  styleUrl: './division.component.css'
+  templateUrl: './mixed.component.html',
+  styleUrl: './mixed.component.css'
 })
-export class DivisionComponent {
+export class MixedComponent {
   public quiz: MathQuestion[] = [];
+
+  public MathOperator = MathOperator;
 
   public constructor(
     private readonly mathService: MathService,
   ) {
-    this.quiz = this.mathService.generateDivisionQuiz();
+    this.quiz = this.mathService.generateMixedQuiz();
   }
 }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import {MathOperator, MathQuestion} from "../../models/math.model";
+import {MathQuestion} from "../../models/math.model";
 import {MathService} from "../../services/math.service";
 import {MathOperationComponent} from "../../components/math-operation/math-operation.component";
 
@@ -15,8 +15,6 @@ import {MathOperationComponent} from "../../components/math-operation/math-opera
 })
 export class SubtractionComponent {
   public quiz: MathQuestion[] = [];
-
-  public MathOperator = MathOperator;
 
   public constructor(
     private readonly mathService: MathService,

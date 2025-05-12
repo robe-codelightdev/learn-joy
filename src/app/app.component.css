@@ -15,12 +15,16 @@
     width: 60px;
   }
 
+  ::ng-deep .earth img {
+    width: 100px;
+  }
+
   ::ng-deep .moon img {
     width: 45px;
   }
 
-  ::ng-deep .earth img {
-    width: 100px;
+  ::ng-deep .planet img {
+    width: 45px;
   }
 
   ::ng-deep .rocket img {
@@ -45,7 +49,7 @@ nav {
   pointer-events: none;
 }
 
-.astronaut, .earth, .moon, .rocket {
+.astronaut, .earth, .moon, .planet, .rocket {
   position: absolute;
   pointer-events: auto;
   z-index: 2;
@@ -58,12 +62,17 @@ nav {
 
 .earth {
   top: 12%;
-  right: 40%;
+  right: 30%;
 }
 
 .moon {
-  top: 5%;
-  right: 23%;
+  top: 6%;
+  right: 14%;
+}
+
+.planet {
+  top: 4%;
+  left: 4%;
 }
 
 .rocket {
@@ -83,8 +92,17 @@ nav {
     right: 35%;
   }
 
+  .earth {
+    right: 37%;
+  }
+
   .moon {
     right: 30%;
+  }
+
+  .planet {
+    top: 6%;
+    left: 27%;
   }
 
   .rocket {
@@ -95,6 +113,10 @@ nav {
 @media screen and (min-width: 1024px) {
   .moon {
     right: 34%;
+  }
+
+  .planet {
+    left: 32%;
   }
 
   .rocket {
@@ -113,6 +135,10 @@ nav {
 
   .moon {
     right: 40%;
+  }
+
+  .planet {
+    left: 36%;
   }
 
   .rocket {
