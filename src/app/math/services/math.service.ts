@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import {shuffleArray} from "../../shared/helpers/shuffle-array";
+import { shuffleArray } from '../../shared/helpers/shuffle-array';
 
-import {MathOperator, MathQuestion} from "../models/math.model";
+import { MathOperator, MathQuestion } from '../models/math.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MathService {
   public generateAdditionQuiz(): MathQuestion[] {
@@ -52,10 +52,13 @@ export class MathService {
   public generateMixedQuiz(): MathQuestion[] {
     const additionQuestions = shuffleArray(this.generateAdditionQuiz());
     const subtractionQuestions = shuffleArray(this.generateSubtractionQuiz());
-    const multiplicationQuestions = shuffleArray(this.generateMultiplicationQuiz());
+    const multiplicationQuestions = shuffleArray(
+      this.generateMultiplicationQuiz()
+    );
     const divisionQuestions = shuffleArray(this.generateDivisionQuiz());
 
-    const mixedQuestions: MathQuestion[] = additionQuestions.slice(0, 10)
+    const mixedQuestions: MathQuestion[] = additionQuestions
+      .slice(0, 10)
       .concat(subtractionQuestions.slice(0, 10))
       .concat(multiplicationQuestions.slice(0, 10))
       .concat(divisionQuestions.slice(0, 10));

@@ -1,5 +1,7 @@
 <div *ngIf="currentQuestionIndex() !== questions().length">
-  <span class="glass-box" i18n="@@mathOperationProgress">Completed {{ currentQuestionIndex() + 1 }} of {{ questions().length }} </span>
+  <span class="glass-box" i18n="@@mathOperationProgress"
+    >Question {{ currentQuestionIndex() + 1 }} of {{ questions().length }}
+  </span>
 
   <app-math-question
     [question]="currentQuestion()"
@@ -9,11 +11,13 @@
 </div>
 
 <div *ngIf="currentQuestionIndex() === questions().length">
-  <app-celebration></app-celebration>
+  <app-celebration
+    [totalQuizTime]="quizSummary().totalQuizTime"
+  ></app-celebration>
 
-  <ng-container *ngIf="failedQuestions().length">
+  <ng-container *ngIf="quizSummary().items.length">
     <app-math-quiz-summary
-      [mathQuizSummaryItems]="failedQuestions()"
+      [mathQuizSummaryItems]="quizSummary().items"
     ></app-math-quiz-summary>
   </ng-container>
 </div>

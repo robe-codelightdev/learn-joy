@@ -18,13 +18,13 @@
         <source>astronaut</source>
       </trans-unit>
       <trans-unit id="celebrationSubtitle" datatype="html">
-        <source> You have completed all the questions </source>
+        <source>You have completed all the questions</source>
       </trans-unit>
       <trans-unit id="celebrationTitle" datatype="html">
         <source>Congratulations!</source>
       </trans-unit>
       <trans-unit id="mathOperationProgress" datatype="html">
-        <source>Completed <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
+        <source>Question <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
       </trans-unit>
       <trans-unit id="mathQuizSummaryAttempts" datatype="html">
         <source>Attempts</source>
@@ -49,6 +49,9 @@
       </trans-unit>
       <trans-unit id="appMixedImageAlt" datatype="html">
         <source>planet</source>
+      </trans-unit>
+      <trans-unit id="celebrationTimeTaken" datatype="html">
+        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> seconds! </source>
       </trans-unit>
     </body>
   </file>

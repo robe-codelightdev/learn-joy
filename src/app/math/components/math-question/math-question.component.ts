@@ -3,28 +3,36 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges, OnDestroy,
+  OnChanges,
+  OnDestroy,
   Output,
   signal,
-  SimpleChanges, ViewChild
+  SimpleChanges,
+  ViewChild,
 } from '@angular/core';
-import {debounceTime, Subscription, tap} from "rxjs";
+import { debounceTime, Subscription, tap } from 'rxjs';
 
-import {shuffleArray} from "../../../shared/helpers/shuffle-array";
+import { shuffleArray } from '../../../shared/helpers/shuffle-array';
 
-import {PlanetColors, PlanetSizes} from "../../models/planet.enum";
-import {MathAnswerAttempt, MathQuestion, MathQuestionSolvedEvent} from "../../models/math.model";
-import {MathAnswerInputComponent} from "../math-answer-input/math-answer-input.component";
-import {NumberPlanetComponent} from "../number-planet/number-planet.component";
+import { PlanetColors, PlanetSizes } from '../../models/planet.enum';
+import {
+  MathAnswerAttempt,
+  MathQuestion,
+  MathQuestionSolvedEvent,
+} from '../../models/math.model';
+import { MathAnswerInputComponent } from '../math-answer-input/math-answer-input.component';
+import { NumberPlanetComponent } from '../number-planet/number-planet.component';
 
 @Component({
   selector: 'app-math-question',
   standalone: true,
   imports: [MathAnswerInputComponent, NumberPlanetComponent],
   templateUrl: './math-question.component.html',
-  styleUrl: './math-question.component.css'
+  styleUrl: './math-question.component.css',
 })
-export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestroy {
+export class MathQuestionComponent
+  implements OnChanges, AfterViewInit, OnDestroy
+{
   @Input()
   public question!: MathQuestion;
 
@@ -45,7 +53,9 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
   public operand2BgColor!: PlanetColors;
   public operand2Size!: PlanetSizes;
 
+  private delayTime = 1500; // in milliseconds
   private inputChangesSubscription!: Subscription;
+  private startTime!: number;
   private userAttempts = signal<MathAnswerAttempt[]>([]);
 
   public constructor() {
@@ -58,7 +68,7 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
         tap((value: number | undefined) => {
           this.currentAnswer.set(value);
         }),
-        debounceTime(1500),
+        debounceTime(this.delayTime)
       )
       .subscribe((value: number | undefined) => {
         this.checkAnswer(value);
@@ -105,14 +115,19 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
       return null;
     }
 
-    const attempt = {
-      userAnswer: answer,
+    // Subtract the debounce delay from the user's total elapsed time
+    const timeTaken = performance.now() - this.startTime - this.delayTime;
+
+    const attempt: MathAnswerAttempt = {
+      attemptNumber: this.userAttempts().length + 1,
       isCorrect: answer === this.question.correctAnswer,
       question: this.question,
-      attemptNumber: this.userAttempts().length + 1,
+      timeTaken,
+      userAnswer: answer,
     };
 
     this.userAttempts().push(attempt);
+    this.startTime = performance.now();
 
     return attempt;
   }
@@ -122,5 +137,6 @@ export class MathQuestionComponent implements OnChanges, AfterViewInit, OnDestro
     this.operand1Size = shuffleArray(Object.values(PlanetSizes))[0];
     this.operand2BgColor = shuffleArray(Object.values(PlanetColors))[0];
     this.operand2Size = shuffleArray(Object.values(PlanetSizes))[0];
+    this.startTime = performance.now();
   }
 }

@@ -2,7 +2,7 @@ export enum MathOperator {
   Addition = '+',
   Subtraction = '-',
   Multiplication = '*',
-  Division = '/'
+  Division = '/',
 }
 
 export interface MathQuestion {
@@ -17,6 +17,8 @@ export interface MathAnswerAttempt {
   attemptNumber: number;
   isCorrect: boolean;
   question: MathQuestion;
+  /** Time taken by the user in milliseconds */
+  timeTaken: number;
   userAnswer: number;
 }
 
@@ -28,4 +30,11 @@ export interface MathQuestionSolvedEvent {
 export interface MathQuizSummaryItem {
   question: MathQuestion;
   numberOfAttempts: number;
+}
+
+export interface MathQuizSummary {
+  items: MathQuizSummaryItem[];
+
+  // Total time taken by the user to complete the quiz, in seconds
+  totalQuizTime: number;
 }

@@ -7,15 +7,30 @@
 }
 
 @keyframes popper {
-  0% { transform: scale(0.8); opacity: 0; }
-  30% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); }
-  70% { transform: scale(1.7); opacity: 0.8; }
-  100% { transform: scale(1.4); opacity: 0;}
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.7);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
 @keyframes shadowOscillation {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: 0 0 10px rgb(253 216 53 / 0.5);
   }
   50% {
@@ -35,7 +50,9 @@ div {
   width: 80%;
 }
 
-h2, h3, span {
+h2,
+h3,
+span {
   display: inline-block;
   font-size: 2rem;
   margin: 0;
@@ -46,6 +63,11 @@ h2, h3, span {
 
 h3 {
   font-size: 1.25rem;
+}
+
+p {
+  font-size: 0.9rem;
+  margin: 0 0 3px 0;
 }
 
 .star {
@@ -77,9 +99,3 @@ h3 {
   bottom: -25%;
   left: 50%;
 }
-
-
-
-
-
-

@@ -27,12 +27,12 @@
         <target state="new">¡Felicidades!</target>
       </trans-unit>
       <trans-unit id="celebrationSubtitle" datatype="html">
-        <source> You have completed all the questions </source>
-        <target state="new"> Has completado todas las preguntas </target>
+        <source>You have completed all the questions</source>
+        <target state="new">Has completado todas las preguntas</target>
       </trans-unit>
       <trans-unit id="mathOperationProgress" datatype="html">
-        <source>Completed <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
-        <target state="new">Completado <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </target>
+        <source>Question <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </source>
+        <target state="new">Ejercicio <x id="INTERPOLATION" equiv-text="{{ currentQuestionIndex() + 1 }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ questions().length }}"/> </target>
       </trans-unit>
       <trans-unit id="mathQuizSummaryQuestion" datatype="html">
         <source>Question</source>
@@ -65,6 +65,10 @@
       <trans-unit id="appMixed" datatype="html">
         <source>Mixed</source>
         <target state="new">Variado</target>
+      </trans-unit>
+      <trans-unit id="celebrationTimeTaken" datatype="html">
+        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> seconds! </source>
+        <target state="new"> Lo hiciste en solo <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> segundos! </target>
       </trans-unit>
     </body>
   </file>
