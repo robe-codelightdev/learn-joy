@@ -19,8 +19,8 @@
         <target state="new">luna</target>
       </trans-unit>
       <trans-unit id="appMultiplicationImageAlt" datatype="html">
-        <source>astronaut</source>
-        <target state="new">astronauta</target>
+        <source>neptune</source>
+        <target state="new">neptuno</target>
       </trans-unit>
       <trans-unit id="celebrationTitle" datatype="html">
         <source>Congratulations!</source>
@@ -43,8 +43,8 @@
         <target state="new">Intentos</target>
       </trans-unit>
       <trans-unit id="appSubtractionImageAlt" datatype="html">
-        <source>rocket</source>
-        <target state="new">cohete</target>
+        <source>venus</source>
+        <target state="new">venus</target>
       </trans-unit>
       <trans-unit id="mathOperationSubtraction" datatype="html">
         <source>Subtraction</source>
@@ -59,7 +59,7 @@
         <target state="new">Divide</target>
       </trans-unit>
       <trans-unit id="appMixedImageAlt" datatype="html">
-        <source>planet</source>
+        <source>uranus</source>
         <target state="new">planeta</target>
       </trans-unit>
       <trans-unit id="appMixed" datatype="html">
@@ -67,8 +67,8 @@
         <target state="new">Variado</target>
       </trans-unit>
       <trans-unit id="celebrationTimeTaken" datatype="html">
-        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> seconds! </source>
-        <target state="new"> Lo hiciste en solo <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> segundos! </target>
+        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> minutes! </source>
+        <target state="new"> Lo hiciste en solo <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> minutos! </target>
       </trans-unit>
     </body>
   </file>

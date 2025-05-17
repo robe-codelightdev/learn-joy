@@ -15,7 +15,7 @@
         <source>moon</source>
       </trans-unit>
       <trans-unit id="appMultiplicationImageAlt" datatype="html">
-        <source>astronaut</source>
+        <source>neptune</source>
       </trans-unit>
       <trans-unit id="celebrationSubtitle" datatype="html">
         <source>You have completed all the questions</source>
@@ -33,7 +33,7 @@
         <source>Question</source>
       </trans-unit>
       <trans-unit id="appSubtractionImageAlt" datatype="html">
-        <source>rocket</source>
+        <source>venus</source>
       </trans-unit>
       <trans-unit id="mathOperationSubtraction" datatype="html">
         <source>Subtraction</source>
@@ -48,10 +48,10 @@
         <source>Mixed</source>
       </trans-unit>
       <trans-unit id="appMixedImageAlt" datatype="html">
-        <source>planet</source>
+        <source>uranus</source>
       </trans-unit>
       <trans-unit id="celebrationTimeTaken" datatype="html">
-        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> seconds! </source>
+        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> minutes! </source>
       </trans-unit>
     </body>
   </file>

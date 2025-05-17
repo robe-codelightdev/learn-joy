@@ -11,6 +11,7 @@ import { ConfettiService } from '../../../shared/libs/confetti.service';
   styleUrl: './celebration.component.css',
 })
 export class CelebrationComponent implements AfterViewInit {
+  /** Total time in minutes */
   @Input()
   public totalQuizTime = 0;
 

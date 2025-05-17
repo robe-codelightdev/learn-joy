@@ -1,0 +1,42 @@
+:host {
+  --animationDelay: 5s;
+  --starColor: rgb(255 255 255);
+  --trailHeight: 10px;
+  --trailWidth: 90px;
+}
+
+.shooting-star {
+  animation: shoot 100s linear infinite;
+  animation-delay: var(--animationDelay);
+  background: var(--starColor);
+  border-radius: 50%;
+  left: calc(var(--trailHeight) * -1);
+  top: 25%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.shooting-star::after {
+  content: '';
+  background: linear-gradient(to left, var(--starColor), transparent);
+  clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+  height: calc(var(--trailHeight) + 1px);
+  left: -50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(calc(-100% + var(--trailHeight)), -50%);
+  width: var(--trailWidth);
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+  2% {
+    transform: translate(calc(100vw + var(--trailWidth)), 14.05vh) rotate(8deg);
+  }
+  100% {
+    transform: translate(calc(100vw + var(--trailWidth)), 14.05vh) rotate(8deg);
+  }
+}
