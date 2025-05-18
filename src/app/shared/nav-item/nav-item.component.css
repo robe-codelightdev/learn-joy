@@ -8,7 +8,11 @@ a {
   text-decoration: none;
 }
 
-a:focus, a:hover, a:active, a:focus-visible, a:visited {
+a:focus,
+a:hover,
+a:active,
+a:focus-visible,
+a:visited {
   color: rgb(255 255 255);
 }
 

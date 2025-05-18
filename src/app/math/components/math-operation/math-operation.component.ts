@@ -66,10 +66,9 @@ export class MathOperationComponent {
       }
     );
 
-    // convert total time to minutes from milliseconds
     return {
       items,
-      totalQuizTime: Math.ceil(totalTime / 60000),
+      totalQuizTime: Math.ceil(totalTime / 1000),
     };
   });
 

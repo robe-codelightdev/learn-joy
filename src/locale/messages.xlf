@@ -51,7 +51,25 @@
         <source>uranus</source>
       </trans-unit>
       <trans-unit id="celebrationTimeTaken" datatype="html">
-        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ totalQuizTime }}"/> minutes! </source>
+        <source> You did it in just <x id="INTERPOLATION" equiv-text="{{ time() }}"/> <x id="INTERPOLATION_1" equiv-text="{{ timeUnit() }}"/>! </source>
+      </trans-unit>
+      <trans-unit id="timeUnitHour" datatype="html">
+        <source>hour</source>
+      </trans-unit>
+      <trans-unit id="timeUnitHours" datatype="html">
+        <source>hours</source>
+      </trans-unit>
+      <trans-unit id="timeUnitMinute" datatype="html">
+        <source>minute</source>
+      </trans-unit>
+      <trans-unit id="timeUnitMinutes" datatype="html">
+        <source>minutes</source>
+      </trans-unit>
+      <trans-unit id="timeUnitSecond" datatype="html">
+        <source>second</source>
+      </trans-unit>
+      <trans-unit id="timeUnitSeconds" datatype="html">
+        <source>seconds</source>
       </trans-unit>
     </body>
   </file>

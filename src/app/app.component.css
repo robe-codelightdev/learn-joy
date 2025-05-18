@@ -1,5 +1,6 @@
 :host {
-  background: url('../assets/images/space-bg-hd.avif') no-repeat center/cover fixed;
+  background: url("../assets/images/space-bg-hd.avif") no-repeat center/cover
+    fixed;
   display: flex;
   justify-content: center;
   min-height: calc(100dvh - 2px);
@@ -11,16 +12,16 @@
     height: auto;
   }
 
-  ::ng-deep .neptune img {
-    width: 60px;
-  }
-
   ::ng-deep .earth img {
     width: 100px;
   }
 
   ::ng-deep .moon img {
     width: 45px;
+  }
+
+  ::ng-deep .neptune img {
+    width: 60px;
   }
 
   ::ng-deep .uranus img {
@@ -49,15 +50,14 @@ nav {
   pointer-events: none;
 }
 
-.neptune, .earth, .moon, .uranus, .venus {
+.earth,
+.moon,
+.neptune,
+.uranus,
+.venus {
   position: absolute;
   pointer-events: auto;
   z-index: 2;
-}
-
-.neptune {
-  bottom: 6%;
-  right: 10%;
 }
 
 .earth {
@@ -68,6 +68,12 @@ nav {
 .moon {
   top: 6%;
   right: 14%;
+  z-index: 3;
+}
+
+.neptune {
+  bottom: 6%;
+  right: 10%;
 }
 
 .uranus {
@@ -88,16 +94,16 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
-  .neptune {
-    right: 35%;
-  }
-
   .earth {
     right: 37%;
   }
 
   .moon {
     right: 30%;
+  }
+
+  .neptune {
+    right: 35%;
   }
 
   .uranus {
@@ -125,15 +131,15 @@ nav {
 }
 
 @media screen and (min-width: 1440px) {
-  .neptune {
-    right: 40%;
-  }
-
   .earth {
     right: 45%;
   }
 
   .moon {
+    right: 40%;
+  }
+
+  .neptune {
     right: 40%;
   }
 
@@ -145,5 +151,3 @@ nav {
     left: 38%;
   }
 }
-
-
