@@ -1,5 +1,7 @@
 a {
   align-items: center;
+  animation: float 3s infinite ease-in-out alternate;
+  clip-path: circle(50% at 50% 50%);
   color: rgb(255 255 255);
   cursor: pointer;
   display: flex;
@@ -16,26 +18,26 @@ a:visited {
   color: rgb(255 255 255);
 }
 
-img {
-  animation: float 3s infinite ease-in-out alternate;
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div:has(a.nav-active) {
+  filter: drop-shadow(0 0 10px rgb(18 175 164 / 1));
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
+
+div:has(a.nav-active) span {
+  display: block;
+  font-size: 0.7rem;
 }
 
 span {
   display: none;
   font-weight: bold;
   padding: 1px 10px;
-}
-
-.nav-active {
-  transform: scale(1.3);
-  transition: all 0.5s ease-in-out;
-}
-
-.nav-active img {
-  filter: drop-shadow(0 0 10px rgb(18 175 164 / 0.9));
-}
-
-.nav-active span {
-  display: block;
-  font-size: 0.7rem;
+  text-align: center;
 }
