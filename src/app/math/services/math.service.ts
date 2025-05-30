@@ -57,11 +57,13 @@ export class MathService {
     );
     const divisionQuestions = shuffleArray(this.generateDivisionQuiz());
 
+    const totalQuestionsByOperation = 11;
+
     const mixedQuestions: MathQuestion[] = additionQuestions
-      .slice(0, 10)
-      .concat(subtractionQuestions.slice(0, 10))
-      .concat(multiplicationQuestions.slice(0, 10))
-      .concat(divisionQuestions.slice(0, 10));
+      .slice(0, totalQuestionsByOperation)
+      .concat(subtractionQuestions.slice(0, totalQuestionsByOperation))
+      .concat(multiplicationQuestions.slice(0, totalQuestionsByOperation))
+      .concat(divisionQuestions.slice(0, totalQuestionsByOperation));
 
     return shuffleArray(mixedQuestions);
   }
