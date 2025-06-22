@@ -98,6 +98,10 @@
         <source>Touch a planet to start learning!</source>
         <target state="new">Toca un planeta para empezar a aprender!</target>
       </trans-unit>
+      <trans-unit id="appLangToggleArialLabel" datatype="html">
+        <source>Change language</source>
+        <target state="new">Cambiar idioma</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

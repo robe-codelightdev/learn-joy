@@ -54,6 +54,13 @@ nav {
   pointer-events: none;
 }
 
+app-lang-toggle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
 .earth,
 .moon,
 .neptune,

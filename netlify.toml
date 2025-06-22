@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/en/*"
-  to = "/en-us/index.html"
+  to = "/en/index.html"
   status = 200
 
 [[redirects]]

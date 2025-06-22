@@ -1,0 +1,11 @@
+a {
+  align-items: center;
+  background: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(10px);
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+}
