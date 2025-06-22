@@ -21,8 +21,9 @@ export class LangToggleComponent implements OnInit, OnDestroy {
         filter(event => event instanceof NavigationEnd),
         takeUntil(this.destroy$)
       )
-      .subscribe((event: NavigationEnd) => {
-        const path = event.urlAfterRedirects || event.url;
+      .subscribe(() => {
+        // Not using NavigationEnd because the language segment may not be resolved at that point
+        const path = window.location.pathname;
         const lang = path.split('/')[1];
 
         if (lang === 'en') {
@@ -30,17 +31,10 @@ export class LangToggleComponent implements OnInit, OnDestroy {
         }
 
         if (lang === 'es') {
-          this.href.set(path.replace('/es/', '/en/'));
+          return this.href.set(path.replace('/es/', '/en/'));
         }
 
         this.href.set('/es' + path);
-
-        console.log('INFO [LangToggleComponent]: Calculando href', {
-          hrefCalculado: this.href(),
-          pathFromEvent: path,
-          pathFromLocation: window.location.pathname,
-        });
-
       });
   }
 
