@@ -34,6 +34,13 @@ export class LangToggleComponent implements OnInit, OnDestroy {
         }
 
         this.href.set('/es' + path);
+
+        console.log('INFO [LangToggleComponent]: Calculando href', {
+          hrefCalculado: this.href(),
+          pathFromEvent: path,
+          pathFromLocation: window.location.pathname,
+        });
+
       });
   }
 
