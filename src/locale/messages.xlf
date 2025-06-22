@@ -71,6 +71,9 @@
       <trans-unit id="timeUnitSeconds" datatype="html">
         <source>secs</source>
       </trans-unit>
+      <trans-unit id="appInstruction" datatype="html">
+        <source>Touch a planet to start learning!</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,27 @@
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 70%;
+  padding: 20px 25px;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+p {
+  animation: blink 2s infinite ease-in-out forwards;
+  color: #ffe96f;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

@@ -94,6 +94,10 @@
         <source>hrs</source>
         <target state="new">hrs</target>
       </trans-unit>
+      <trans-unit id="appInstruction" datatype="html">
+        <source>Touch a planet to start learning!</source>
+        <target state="new">Toca un planeta para empezar a aprender!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

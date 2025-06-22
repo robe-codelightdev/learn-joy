@@ -1,42 +1,39 @@
 :host {
-  --animationDelay: 5s;
+  --animationDelay: 1s;
   --starColor: rgb(255 255 255);
-  --trailHeight: 10px;
+  --startHeight: 10px;
   --trailWidth: 90px;
 }
 
 .shooting-star {
-  animation: shoot 100s linear infinite;
+  animation: shoot 10s linear infinite;
   animation-delay: var(--animationDelay);
   background: var(--starColor);
   border-radius: 50%;
-  left: calc(var(--trailHeight) * -1);
-  top: 25%;
-  height: 10px;
+  left: calc(var(--startHeight) * -1);
+  top: 25vh;
+  height: var(--startHeight);
   position: absolute;
-  width: 10px;
+  width: var(--startHeight);
 }
 
 .shooting-star::after {
   content: '';
   background: linear-gradient(to left, var(--starColor), transparent);
   clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-  height: calc(var(--trailHeight) + 1px);
+  height: calc(var(--startHeight) + 1px);
   left: -50%;
   top: 50%;
   position: absolute;
-  transform: translate(calc(-100% + var(--trailHeight)), -50%);
+  transform: translate(calc(-100% + var(--startHeight)), -50%);
   width: var(--trailWidth);
 }
 
 @keyframes shoot {
   0% {
-    transform: translate(0, 0) rotate(8deg);
-  }
-  2% {
-    transform: translate(calc(100vw + var(--trailWidth)), 14.05vh) rotate(8deg);
+    transform: translate(0, 0) rotate(5deg);
   }
   100% {
-    transform: translate(calc(100vw + var(--trailWidth)), 14.05vh) rotate(8deg);
+    transform: translate(3840px, 336px) rotate(5deg);
   }
 }

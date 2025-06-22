@@ -11,7 +11,8 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    title: 'Learn JOY'
   },
   {
     path: 'math/addition',
