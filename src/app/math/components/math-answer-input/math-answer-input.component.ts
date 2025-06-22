@@ -1,15 +1,10 @@
 import {Component, effect, Input, OnChanges, signal, SimpleChanges} from '@angular/core';
-import {NgIf} from "@angular/common";
 import {Subject} from "rxjs";
 
 @Component({
-  selector: 'app-math-answer-input',
-  standalone: true,
-  imports: [
-    NgIf,
-  ],
-  templateUrl: './math-answer-input.component.html',
-  styleUrl: './math-answer-input.component.css'
+    selector: 'app-math-answer-input',
+    templateUrl: './math-answer-input.component.html',
+    styleUrl: './math-answer-input.component.css'
 })
 export class MathAnswerInputComponent implements OnChanges {
   @Input()

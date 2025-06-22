@@ -2,7 +2,10 @@
 <div class="glass-box">
   <h2 class="celebration-text" i18n="@@celebrationTitle">Congratulations!</h2>
   <h3 i18n="@@celebrationSubtitle">You have completed all the questions</h3>
-  <p *ngIf="totalQuizTime" i18n="@@celebrationTimeTaken">
-    You did it in just {{ formattedQuizTime() }}!
-  </p>
+  @if (totalQuizTime) {
+    <p i18n="@@celebrationTimeTaken">
+      You did it in just {{ formattedQuizTime() }}!
+    </p>
+  }
+
 </div>

@@ -6,13 +6,12 @@ import {MathService} from "../../services/math.service";
 
 
 @Component({
-  selector: 'app-mixed',
-  standalone: true,
-  imports: [
-    MathOperationComponent
-  ],
-  templateUrl: './mixed.component.html',
-  styleUrl: './mixed.component.css'
+    selector: 'app-mixed',
+    imports: [
+        MathOperationComponent
+    ],
+    templateUrl: './mixed.component.html',
+    styleUrl: './mixed.component.css'
 })
 export class MixedComponent {
   public quiz: MathQuestion[] = [];

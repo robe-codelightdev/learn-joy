@@ -1,11 +1,10 @@
 import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-shooting-star',
-  standalone: true,
-  imports: [],
-  templateUrl: './shooting-star.component.html',
-  styleUrl: './shooting-star.component.css'
+    selector: 'app-shooting-star',
+    imports: [],
+    templateUrl: './shooting-star.component.html',
+    styleUrl: './shooting-star.component.css'
 })
 export class ShootingStarComponent {
   @Input()

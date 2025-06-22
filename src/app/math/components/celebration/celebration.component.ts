@@ -1,22 +1,18 @@
 import {
   AfterViewInit,
   Component,
-  computed,
   Input,
   OnChanges,
   signal,
   SimpleChanges,
 } from '@angular/core';
-import {NgIf} from '@angular/common';
 
 import {ConfettiService} from '../../../shared/libs/confetti.service';
 
 @Component({
-  selector: 'app-celebration',
-  standalone: true,
-  imports: [NgIf],
-  templateUrl: './celebration.component.html',
-  styleUrl: './celebration.component.css',
+    selector: 'app-celebration',
+    templateUrl: './celebration.component.html',
+    styleUrl: './celebration.component.css'
 })
 export class CelebrationComponent implements AfterViewInit, OnChanges {
   /** Total time in seconds */

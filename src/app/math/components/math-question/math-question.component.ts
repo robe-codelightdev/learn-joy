@@ -24,11 +24,10 @@ import { MathAnswerInputComponent } from '../math-answer-input/math-answer-input
 import { NumberPlanetComponent } from '../number-planet/number-planet.component';
 
 @Component({
-  selector: 'app-math-question',
-  standalone: true,
-  imports: [MathAnswerInputComponent, NumberPlanetComponent],
-  templateUrl: './math-question.component.html',
-  styleUrl: './math-question.component.css',
+    selector: 'app-math-question',
+    imports: [MathAnswerInputComponent, NumberPlanetComponent],
+    templateUrl: './math-question.component.html',
+    styleUrl: './math-question.component.css'
 })
 export class MathQuestionComponent
   implements OnChanges, AfterViewInit, OnDestroy

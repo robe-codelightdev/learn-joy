@@ -1,12 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {JsonPipe, NgForOf} from "@angular/common";
+import {NgForOf} from "@angular/common";
 
 import {MathQuizSummaryItem} from "../../models/math.model";
 
 @Component({
   selector: 'app-math-quiz-summary',
-  standalone: true,
-  imports: [NgForOf, JsonPipe],
+  imports: [NgForOf],
   templateUrl: './math-quiz-summary.component.html',
   styleUrl: './math-quiz-summary.component.css'
 })

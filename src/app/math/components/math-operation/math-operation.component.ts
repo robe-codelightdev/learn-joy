@@ -1,5 +1,4 @@
 import { Component, computed, Input, signal } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 import {
   MathAnswerAttempt,
@@ -13,16 +12,14 @@ import { MathQuestionComponent } from '../math-question/math-question.component'
 import { MathQuizSummaryComponent } from '../math-quiz-summary/math-quiz-summary.component';
 
 @Component({
-  selector: 'app-math-operation',
-  standalone: true,
-  imports: [
-    CelebrationComponent,
-    MathQuestionComponent,
-    NgIf,
-    MathQuizSummaryComponent,
-  ],
-  templateUrl: './math-operation.component.html',
-  styleUrl: './math-operation.component.css',
+    selector: 'app-math-operation',
+    imports: [
+        CelebrationComponent,
+        MathQuestionComponent,
+        MathQuizSummaryComponent,
+    ],
+    templateUrl: './math-operation.component.html',
+    styleUrl: './math-operation.component.css'
 })
 export class MathOperationComponent {
   @Input()

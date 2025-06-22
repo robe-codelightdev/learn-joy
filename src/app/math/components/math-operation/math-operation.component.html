@@ -1,23 +1,28 @@
-<div *ngIf="currentQuestionIndex() !== questions().length">
+@if (currentQuestionIndex() !== questions().length) {
+  <div>
   <span class="glass-box" i18n="@@mathOperationProgress"
-    >Question {{ currentQuestionIndex() + 1 }} of {{ questions().length }}
+  >Question {{ currentQuestionIndex() + 1 }} of {{ questions().length }}
   </span>
 
-  <app-math-question
-    [question]="currentQuestion()"
-    (questionSolved)="onQuestionSolved($event)"
-  >
-  </app-math-question>
-</div>
+    <app-math-question
+      [question]="currentQuestion()"
+      (questionSolved)="onQuestionSolved($event)"
+    >
+    </app-math-question>
+  </div>
+}
 
-<div *ngIf="currentQuestionIndex() === questions().length">
-  <app-celebration
-    [totalQuizTime]="quizSummary().totalQuizTime"
-  ></app-celebration>
+@if (currentQuestionIndex() === questions().length) {
+  <div>
+    <app-celebration
+      [totalQuizTime]="quizSummary().totalQuizTime"
+    ></app-celebration>
 
-  <ng-container *ngIf="quizSummary().items.length">
-    <app-math-quiz-summary
-      [mathQuizSummaryItems]="quizSummary().items"
-    ></app-math-quiz-summary>
-  </ng-container>
-</div>
+    @if (quizSummary().items.length) {
+      <app-math-quiz-summary
+        [mathQuizSummaryItems]="quizSummary().items"
+      ></app-math-quiz-summary>
+    }
+  </div>
+}
+
