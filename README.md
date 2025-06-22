@@ -1,6 +1,6 @@
-# LearnJoy
+# Learn JOY
 
-LearnJoy is a fun and educational Angular app designed to help children practice multiplication and improve their reading skill.
+Learn JOY is an engaging and educational Angular app designed to help children master basic math skills.
 
 ## Development server
 
