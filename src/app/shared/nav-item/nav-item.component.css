@@ -1,3 +1,12 @@
+:host {
+  position: relative;
+}
+
+:host:has(a.nav-active) span {
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
+}
+
 a {
   align-items: center;
   animation: float 3s infinite ease-in-out alternate;
@@ -18,26 +27,20 @@ a:visited {
   color: rgb(255 255 255);
 }
 
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 div:has(a.nav-active) {
   filter: drop-shadow(0 0 10px rgb(18 175 164 / 1));
   transform: scale(1.2);
   transition: all 0.5s ease-in-out;
 }
 
-div:has(a.nav-active) span {
-  display: block;
-  font-size: 0.7rem;
-}
-
 span {
-  display: none;
+  bottom: -25px;
+  font-size: 0.75rem;
   font-weight: bold;
-  padding: 1px 10px;
+  left: 50%;
+  opacity: 0;
+  padding: 2px 14px;
+  position: absolute;
   text-align: center;
+  transform: translateX(-50%);
 }
