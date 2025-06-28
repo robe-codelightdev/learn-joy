@@ -1,6 +1,5 @@
 :host {
-  background: url("../assets/images/space-bg-hd.avif") no-repeat center/cover
-    fixed;
+  background: url("../assets/images/space-bg-hd.avif") no-repeat center/cover fixed;
   display: flex;
   justify-content: center;
   min-height: calc(100dvh - 2px);
@@ -97,10 +96,22 @@ app-lang-toggle {
   left: 8%;
 }
 
+.star-sparkle {
+  --star-sparkle-size: 30px;
+
+  position: absolute;
+  top: 3%;
+  left: 25%;
+}
+
 @media screen and (min-width: 425px) {
   .neptune {
     bottom: 8%;
     right: 15%;
+  }
+
+  .star-sparkle {
+    left: 30%;
   }
 }
 
@@ -117,6 +128,11 @@ app-lang-toggle {
     right: 35%;
   }
 
+  .star-sparkle {
+    left: 40%;
+    top: 5%;
+  }
+
   .uranus {
     top: 6%;
     left: 27%;
@@ -130,6 +146,13 @@ app-lang-toggle {
 @media screen and (min-width: 1024px) {
   .moon {
     right: 34%;
+  }
+
+  .star-sparkle {
+    --star-sparkle-size: 40px;
+
+    left: 78%;
+    top: 8%;
   }
 
   .uranus {
@@ -152,6 +175,13 @@ app-lang-toggle {
 
   .neptune {
     right: 40%;
+  }
+
+  .star-sparkle {
+    --star-sparkle-size: 45px;
+
+    left: 81%;
+    top: 67%;
   }
 
   .uranus {

@@ -1,0 +1,15 @@
+@keyframes sparkles {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgb(255 255 255 / 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgb(255 255 255 / 0.9));
+  }
+}
+
+img {
+  animation: sparkles 1.5s infinite ease-in-out;
+  height: var(--star-sparkle-size, 40px);
+  width: var(--star-sparkle-size, 40px)
+}
