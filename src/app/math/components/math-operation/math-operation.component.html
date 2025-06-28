@@ -1,14 +1,13 @@
 @if (currentQuestionIndex() !== questions().length) {
   <div>
-  <span class="glass-box" i18n="@@mathOperationProgress"
-  >Question {{ currentQuestionIndex() + 1 }} of {{ questions().length }}
-  </span>
+    <span class="glass-box" i18n="@@mathOperationProgress">
+      Question {{ currentQuestionIndex() + 1 }} of {{ questions().length }}
+    </span>
 
     <app-math-question
       [question]="currentQuestion()"
       (questionSolved)="onQuestionSolved($event)"
-    >
-    </app-math-question>
+    ></app-math-question>
   </div>
 }
 

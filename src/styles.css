@@ -44,3 +44,8 @@ html, body {
   font-style: normal;
 }
 
+::view-transition-old(questionContainer),
+::view-transition-new(questionContainer) {
+  animation-duration: 0.5s;
+}
+
